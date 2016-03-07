@@ -1,45 +1,50 @@
 <head>
   <title>menuSearchForSquare</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/uikit/2.xx.x/css/uikit.almost-flat.css" />
-<script src="https://cdnjs.cloudflare.com/ajax/libs/uikit/2.xx.x/js/uikit.min.js"></script>
-    <meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
-    <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v0.13.1/mapbox-gl.js'></script>
-    <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v0.13.1/mapbox-gl.css' rel='stylesheet' />
-    <script src='https://api.mapbox.com/mapbox.js/plugins/leaflet-locatecontrol/v0.43.0/L.Control.Locate.min.js'></script>
-<link href='https://api.mapbox.com/mapbox.js/plugins/leaflet-locatecontrol/v0.43.0/L.Control.Locate.mapbox.css' rel='stylesheet' />
-<!--[if lt IE 9]>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/uikit/2.xx.x/css/uikit.almost-flat.css" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/uikit/2.xx.x/js/uikit.min.js"></script>
+  <meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
+  <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v0.13.1/mapbox-gl.js'></script>
+  <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v0.13.1/mapbox-gl.css' rel='stylesheet' />
+  <script src='https://api.mapbox.com/mapbox.js/plugins/leaflet-locatecontrol/v0.43.0/L.Control.Locate.min.js'></script>
+  <link href='https://api.mapbox.com/mapbox.js/plugins/leaflet-locatecontrol/v0.43.0/L.Control.Locate.mapbox.css' rel='stylesheet' />
+  <!--[if lt IE 9]>
   <link href='https://api.mapbox.com/mapbox.js/plugins/leaflet-locatecontrol/v0.43.0/L.Control.Locate.ie.css' rel='stylesheet' />
 <![endif]-->
-<link href='https://api.mapbox.com/mapbox.js/plugins/leaflet-locatecontrol/v0.43.0/css/font-awesome.min.css' rel='stylesheet' />
-    <style>
-        body { margin:0; padding:0; }
-        html, body{
-            height: 100%;
-            width: 100%;
-        }
-        #map { position:absolute; top:0; bottom:0; width:50%; }
-    </style>
+  <link href='https://api.mapbox.com/mapbox.js/plugins/leaflet-locatecontrol/v0.43.0/css/font-awesome.min.css' rel='stylesheet' />
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+    }
+
+    html,
+    body {
+      height: 100%;
+      width: 100%;
+    }
+
+    #map {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      width: 50%;
+    }
+  </style>
 </head>
 
 <body>
-        <div id="map" style="width:100%; height:45%; position:relative; top:0px; right:0px;" class="mapbox"></div>
+  <div id="map" style="width:100%; height:45%; position:relative; top:0px; right:0px;" class="mapbox"></div>
     <form class="new-task" id="getInput">
-        <input type="text" name="text" placeholder="Add a filter(ex. Carrots, Celery, Chicken, Steak)" />
-         </form>
-         <div id="button">
-  <a href="#" class="button">
-  <span>Submit</span>
-</a></div>
-    <div id="list">
-    <ul>{{>places}}</ul>
-        </div>
-    
-    
-    
+      <input type="text" name="text" placeholder="Add a filter(ex. Carrots, Celery, Chicken, Steak)" />
+    </form>
+  <div id="button">
+    <a href="#" class="button">
+      <span>Submit</span>
+    </a>
+  </div>
+  <div id="list">
+  </div>
+
+
+
 </body>
-
-
-<template name="places">
-
-</template>
-
