@@ -1,0 +1,131 @@
+@import url(http://fonts.googleapis.com/css?family=Nunito:300);
+
+/*body { font-family: "Nunito", sans-serif; font-size: 24px; }*/
+a    { text-decoration: none; }
+p    { text-align: center; }
+sup  { font-size: 36px; font-weight: 100; line-height: 55px; }
+
+body{
+   height:100%; 
+   width:100%; 
+}
+#input{
+ width:20%;   
+    
+}
+#getInput{
+ width:8%;
+height:3%;
+position:relative;
+font-size:0px;
+}
+#content{
+ height:45%;
+ width:100%;
+position:relative;
+}
+.style-1 input[type="text"] {
+  padding: 5%;
+  border: solid .5% #dcdcdc;
+  transition: box-shadow 0.3s, border 0.3s;
+}
+.style-1 input[type="text"]:focus,
+.style-1 input[type="text"].focus {
+  border: solid .5% #707070;
+  box-shadow: 0 0 1% .5% #969696;
+}
+
+#list{
+    border-style: dotted;
+    border-color:black;
+    float:right;
+    top:0;
+    right:0;
+    height: 50%;
+    width:100%;
+    position:relative;
+}
+
+#button{
+ margin-left:30%;
+    
+    
+}
+.button
+{
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  text-align: center;
+  color: #0C5;
+
+  font-size: 24px;
+  font-family: "Nunito", sans-serif;
+  font-weight: 300;
+  
+  margin: 5em auto;
+  
+  position: relative; 
+  top:0; right:0px; bottom:0px; left:0;
+  
+  padding: 2%;
+  width: 10%;
+  height:5%;
+
+  background: #0D6;
+  border: 1px solid #0D6;
+  color: #FFF;
+  overflow: hidden;
+  
+  transition: all 0.5s;
+}
+
+.button:hover, .button:active 
+{
+  text-decoration: none;
+  color: #0C5;
+  border-color: #0C5;
+  background: #FFF;
+}
+
+.button span 
+{
+  display: inline-block;
+  position: relative;
+  padding-right: 0;
+  
+  transition: padding-right 0.5s;
+}
+
+.button span:after 
+{
+  content: ' ';  
+  position: absolute;
+  top: 0;
+  right: -18px;
+  opacity: 0;
+  width: 10px;
+  height: 10px;
+  margin-top: -10px;
+
+  background: rgba(0, 0, 0, 0);
+  border: 3px solid #FFF;
+  border-top: none;
+  border-right: none;
+
+  transition: opacity 0.5s, top 0.5s, right 0.5s;
+  transform: rotate(-45deg);
+}
+
+.button:hover span, .button:active span 
+{
+  padding-right: 30px;
+}
+
+.button:hover span:after, .button:active span:after 
+{
+  transition: opacity 0.5s, top 0.5s, right 0.5s;
+  opacity: 1;
+  border-color: #0C5;
+  right: 0;
+  top: 50%;
+}
