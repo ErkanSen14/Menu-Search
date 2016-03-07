@@ -1,3 +1,5 @@
+//Filters=new Mongo.Collections("filters");
+
 if (Meteor.isClient) {
   var lat,
     lng;
