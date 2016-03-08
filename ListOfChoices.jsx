@@ -1,14 +1,13 @@
 // List of choices selected by user
 ListOfChoices = React.createClass({
 
-  mixins: [ReactMeteorData],
-
-  getMeteorData(){
-
-    return{
-      filters: Filters.find({}).fetch
-    }
-  },
+  getFilters() {
+     return [
+       { _id: 1, text: "This is task 1" },
+       { _id: 2, text: "This is task 2" },
+       { _id: 3, text: "This is task 3" }
+     ];
+   },
 
   renderFilters() {
     return this.getFilters().map((filter) => {

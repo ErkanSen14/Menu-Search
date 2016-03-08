@@ -12,7 +12,7 @@ if (Meteor.isClient) {
     GoogleMaps.load();
     Mapbox.load({plugins: ['locate']});
 
-    React.render(<ListOfChoices />,document.getElementById('list'))
+    React.render(<ListOfChoices />,document.getElementById('list'));
 
 
   });
