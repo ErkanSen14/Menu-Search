@@ -13,11 +13,18 @@ body{
  width:20%;
 
 }
-#getInput{
+#container{
  width:8%;
 height:3%;
 position:relative;
 font-size:0px;
+}
+.container{
+ width:8%;
+height:3%;
+position:relative;
+font-size:0px;
+top:-30;
 }
 #content{
  height:45%;

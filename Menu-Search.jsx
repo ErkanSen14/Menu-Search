@@ -1,4 +1,4 @@
-//Filters=new Mongo.Collections("filters");
+Filters= new Mongo.Collection("filters");
 
 if (Meteor.isClient) {
   var lat,
@@ -98,15 +98,16 @@ if (Meteor.isClient) {
   })
 
   Template.body.events({
-    "submit .new-task": function(event) {
+  /*  "submit .new-task": function(event) {
       // Prevent default browser form submit
       event.preventDefault();
       // Get value from form element
       var text = event.target.text.value;
       searchFilter[counter] = text;
+      Filters.insert(searchFilter[counter]);
       counter++;
       console.log(searchFilter);
-    }
+    }*/
 
   })
 };
