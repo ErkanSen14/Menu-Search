@@ -19,17 +19,16 @@ height:3%;
 position:relative;
 font-size:0px;
 }
-.container{
- width:8%;
-height:3%;
-position:relative;
-font-size:0px;
-top:-30;
-}
 #content{
  height:45%;
  width:100%;
 position:relative;
+}
+.new-task{
+position:relative;
+
+
+
 }
 .style-1 input[type="text"] {
   padding: 5%;
@@ -46,10 +45,9 @@ position:relative;
     border-style: dotted;
     border-color:black;
     float:right;
-    top:-50;
     right:0;
     height: 25%;
-    width:100%;
+    width:50%;
     position:relative;
 }
 

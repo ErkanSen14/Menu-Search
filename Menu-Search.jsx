@@ -1,4 +1,4 @@
-Filters= new Mongo.Collection("filters");
+Tasks=new Mongo.Collection("tasks")
 
 if (Meteor.isClient) {
   var lat,
@@ -12,7 +12,7 @@ if (Meteor.isClient) {
     GoogleMaps.load();
     Mapbox.load({plugins: ['locate']});
 
-    React.render(<ListOfChoices />,document.getElementById('list'));
+    React.render(<App />,document.getElementById('list'));
 
 
   });
