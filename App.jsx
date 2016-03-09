@@ -31,12 +31,12 @@ mixins: [ReactMeteorData],
     return (
       <div className="container">
         <header>
-          <h1>Todo List</h1>
+          <h1>Filter List</h1>
             <form className="new-task" onSubmit={this.handleSubmit} >
               <input
                 type="text"
                 ref="textInput"
-                placeholder="Type to add new tasks" />
+                placeholder="Type to add new filters" />
             </form>
         </header>
 

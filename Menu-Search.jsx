@@ -1,4 +1,4 @@
-Tasks=new Mongo.Collection("tasks")
+Tasks=new Mongo.Collection(null)
 
 if (Meteor.isClient) {
   var lat,
@@ -13,7 +13,6 @@ if (Meteor.isClient) {
     Mapbox.load({plugins: ['locate']});
 
     React.render(<App />,document.getElementById('list'));
-
 
   });
 
@@ -95,22 +94,10 @@ if (Meteor.isClient) {
 
       }
     }
-  })
 
-  Template.body.events({
-  /*  "submit .new-task": function(event) {
-      // Prevent default browser form submit
-      event.preventDefault();
-      // Get value from form element
-      var text = event.target.text.value;
-      searchFilter[counter] = text;
-      Filters.insert(searchFilter[counter]);
-      counter++;
-      console.log(searchFilter);
-    }*/
 
   })
-};
+
 if (Meteor.isServer) {
   Meteor.startup(function() {
     // code to run on server at startup
