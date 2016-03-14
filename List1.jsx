@@ -1,5 +1,5 @@
 // App component - represents the whole app
-App = React.createClass({
+List1 = React.createClass({
 
 mixins: [ReactMeteorData],
   getMeteorData() {
@@ -21,7 +21,6 @@ mixins: [ReactMeteorData],
 
       Tasks.insert({
         text: text,
-        createdAt: new Date() // current time
       });
 
       // Clear form

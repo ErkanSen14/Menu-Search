@@ -1,9 +1,10 @@
-Tasks=new Mongo.Collection(null)
+Tasks = new Mongo.Collection(null)
+db=new Mongo.Collection(null)
 
 if (Meteor.isClient) {
   var lat,
     lng;
-  var menus = [];
+
   var menus2 = [];
   var searchFilter = [];
   var venue;
@@ -12,7 +13,8 @@ if (Meteor.isClient) {
     GoogleMaps.load();
     Mapbox.load({plugins: ['locate']});
 
-    React.render(<App />,document.getElementById('list'));
+    React.render(<List1/>, document.getElementById('list'));
+    React.render(<List2/>,document.getElementById('list2'))
 
   });
 
@@ -31,11 +33,9 @@ if (Meteor.isClient) {
     function yolo() {
       if (Mapbox.loaded()) {
 
-        console.log(lat);
         L.mapbox.accessToken = 'pk.eyJ1IjoiZXJrYW5zZW4xNCIsImEiOiJjaWtkOGxjbzAwMDE5dmZsenh5M3docWVqIn0.t-CPo9LbkqclOeIDHaUzSw';
         var map = L.mapbox.map('map', "mapbox.streets");
         var lc = L.control.locate({follow: true, setView: true, showPopup: true, keepCurrentZoomLevel: true}).addTo(map);
-        console.log("THIRD" + lat);
         lc.start();
         map.setView([
           lat, lng
@@ -69,6 +69,9 @@ if (Meteor.isClient) {
                 place: result.response.groups['0'].items[j]
               }
               menus[j] = venue;
+              db.insert({
+                venue: venue
+              })
             }
             console.log(menus);
             for (var x = 0; x < result.response.groups[i].items.length; x++) {
@@ -77,26 +80,25 @@ if (Meteor.isClient) {
               var marker = L.marker(latlng, {
                 icon: L.mapbox.marker.icon({'marker-color': '#ff0000', 'marker-symbol': 'restaurant', 'marker-size': 'large'})
               }).bindPopup('<strong><a href="https://foursquare.com/v/' + venue.id + '">' + venue.name + '</a></strong>').addTo(foursquarePlaces);
-            }
-          }
+            }}
+
+
+
+
 
         })
 
-        var venueid = "4b3bf596f964a520437f25e3";
-        var API_ENDPOINT = 'https://api.foursquare.com/v2/venues/' + venueid + '/menu?oauth_token=MYMLE5NHKL3YLE2A3U40MKIO0HTKOOR4IGUXFHHO4WKUMXUB&v=20160214';
-        //get menus from venues and put into array
-        $.getJSON(API_ENDPOINT.replace('CLIENT_ID', CLIENT_ID).replace('CLIENT_SECRET', CLIENT_SECRET), function(result, status) {
-          console.log(result);
-          console.log(result.response.menu);
-          console.log(result.response.menu.menus.items[0].entries.items[0]);
 
-        })
+
 
       }
+
+
+
     }
 
-
   })
+}
 
 if (Meteor.isServer) {
   Meteor.startup(function() {

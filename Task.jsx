@@ -10,6 +10,11 @@ Task = React.createClass({
     Tasks.remove(this.props.task._id);
   },
 
+  helloWorld(){
+
+    console.log("HELLO WORLD")
+  },
+
   render() {
 
     return (

@@ -44,10 +44,22 @@ position:relative;
 #list{
     border-style: dotted;
     border-color:black;
+    overflow-y: auto;
+    float:left;
+    right:0;
+    height: 25%;
+    width:48%;
+    position:relative;
+}
+
+#list2{
+    border-style: dotted;
+    border-color:black;
+    overflow-y: auto;
     float:right;
     right:0;
     height: 25%;
-    width:50%;
+    width:48%;
     position:relative;
 }
 
