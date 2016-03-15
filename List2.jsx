@@ -44,6 +44,7 @@ mixins: [ReactMeteorData],
         <h1>Best Matched Restaurants</h1>
         </header>
         <ul>
+          {this.helloWorld()}
           {this.renderTasks()}
         </ul>
 
