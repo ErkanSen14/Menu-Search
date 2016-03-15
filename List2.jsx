@@ -10,7 +10,7 @@ mixins: [ReactMeteorData],
    },
   renderTasks() {
     return this.data.menus.map((venue)=>{
-      return <li>{venue.percent}</li>
+      return <li key={venue.key}>{venue.venue.percent}</li>
     })
   },
 

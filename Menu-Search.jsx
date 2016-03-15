@@ -70,6 +70,7 @@ if (Meteor.isClient) {
               }
               menus[j] = venue;
               db.insert({
+                key: j,
                 venue: venue
               })
             }
