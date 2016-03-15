@@ -5,12 +5,12 @@ List2 = React.createClass({
 mixins: [ReactMeteorData],
   getMeteorData() {
      return {
-       menus: menus
+       menus: db.find({}).fetch()
      }
    },
   renderTasks() {
-    return this.data.menus.map((menu)=>{
-      return <li>{menu.percent}</li>
+    return this.data.menus.map((venue)=>{
+      return <li>{venue.percent}</li>
     })
   },
 
@@ -40,8 +40,12 @@ mixins: [ReactMeteorData],
 
     return (
       <div className="container">
+        <header>
         <h1>Best Matched Restaurants</h1>
-        <ul>{this.renderTasks()}</ul>
+        </header>
+        <ul>
+          {this.renderTasks()}
+        </ul>
 
     </div>
     );
