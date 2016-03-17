@@ -5,7 +5,7 @@ if (Meteor.isClient) {
   var lat,
     lng;
 
-  var menus2 = [];
+
   var searchFilter = [];
   var venue;
   var counter = 0;
@@ -54,6 +54,7 @@ if (Meteor.isClient) {
         '&limit=50' +
         '&callback=?';
 
+
         var foursquarePlaces = L.layerGroup().addTo(map);
         // Use jQuery to make an AJAX request to Foursquare to load markers data.
         $.getJSON(API_ENDPOINT.replace('CLIENT_ID', CLIENT_ID).replace('CLIENT_SECRET', CLIENT_SECRET).replace('LATLON', map.getCenter().lat + ',' + map.getCenter().lng), function(result, status) {
@@ -75,6 +76,8 @@ if (Meteor.isClient) {
                 percent: 0
               })
             }
+
+            menus2=db.find({},{sort: {percent: -1}}).fetch()
             for (var x = 0; x < result.response.groups[i].items.length; x++) {
               var venue = result.response.groups[i].items[x].venue;
               var latlng = L.latLng(venue.location.lat, venue.location.lng);
