@@ -65,16 +65,16 @@ if (Meteor.isClient) {
           for (var i = 0; i < result.response.groups.length; i++) {
             for (var j = 0; j < result.response.groups['0'].items.length; j++) {
               venue = {
-                percent: '0',
                 place: result.response.groups['0'].items[j]
               }
               menus[j] = venue;
               db.insert({
                 key: j,
-                venue: venue
+                venue: venue,
+                name: venue.place.venue.name,
+                percent: 0
               })
             }
-            console.log(menus);
             for (var x = 0; x < result.response.groups[i].items.length; x++) {
               var venue = result.response.groups[i].items[x].venue;
               var latlng = L.latLng(venue.location.lat, venue.location.lng);
