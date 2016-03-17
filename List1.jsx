@@ -5,6 +5,7 @@ var storageArray = []
 var nameOfPlace
 var sortedMenu
 var sortedMenus=[]
+var venueid
 // App component - represents the whole app
 var count = 0
 
@@ -13,6 +14,7 @@ List1 = React.createClass({
 
   mixins: [ReactMeteorData],
   getMeteorData() {
+
     return {tasks: Tasks.find({}).fetch()}
   },
   renderTasks() {
@@ -23,6 +25,7 @@ List1 = React.createClass({
 
   handleSubmit(event) {
     event.preventDefault();
+    venueid=menus2[0].venue.place.venue.id
 
     console.log(sortedMenus[0])
 
@@ -40,9 +43,9 @@ List1 = React.createClass({
     //check that the array is not empty since if it is, website will glitch as list2 renders before menus
     if (menus2.length > 0) {
       var j=0
-       function updateStuff(i){
+       function updateStuff(j,callback){
 
-        var API_ENDPOINT = 'https://api.foursquare.com/v2/venues/' + menus2[i].venue.place.venue.id + '/menu' + '?client_id=CLIENT_ID' + '&client_secret=CLIENT_SECRET' + '&v=20160315';
+        var API_ENDPOINT = 'https://api.foursquare.com/v2/venues/' + venueid + '/menu' + '?client_id=CLIENT_ID' + '&client_secret=CLIENT_SECRET' + '&v=20160315';
 
         //get menus for sorting
         $.getJSON(API_ENDPOINT.replace('CLIENT_ID', CLIENT_ID).replace('CLIENT_SECRET', CLIENT_SECRET), function(result, status) {
@@ -110,40 +113,44 @@ List1 = React.createClass({
 
             }
 
-            eachRecursive(result.response.menu)
+            eachRecursive(result.response.menu,updateDB())
 
           }
-
-          var percentage = numOfInstances / totalCount * 100
-          if (!isNaN(percentage)&&numOfInstances!=totalCount) {
-            console.log("Percentage match is: " + percentage + "%")
-            db.update({_id: menus2[i]._id}, {$set: {percent: percentage}
-            })
-
-
-          }
-          if(numOfInstances==totalCount)
-          {
-            console.log("Percentage match is: " + percentage + "%")
-            db.update({
-              _id: menus2[i]._id
-            }, {
-              $set: {
-                percent: 0
-              }
-            })
-          }
-          totalCount = 0
-          numOfInstances = 0
-          percentage = 0
 
         })
 
-      if(i<menus.length){
-        i++
-        updateStuff(i)}
-      }
 
+      if(j<menus.length){
+        j++
+        venueid=menus2[j].venue.place.venue.id
+        updateStuff(j)}
+      }
+      function updateDB(){
+
+              var percentage = numOfInstances / totalCount * 100
+              if (!isNaN(percentage)&&numOfInstances!=totalCount) {
+                console.log("Percentage match is: " + percentage + "%")
+                db.update({_id: menus2[j]._id}, {$set: {percent: percentage}
+                })
+
+
+              }
+              if(numOfInstances==totalCount)
+              {
+                console.log("Percentage match is: " + percentage + "%")
+                db.update({
+                  _id: menus2[j]._id
+                }, {
+                  $set: {
+                    percent: 0
+                  }
+                })
+              }
+              totalCount = 0
+              numOfInstances = 0
+              percentage = 0
+
+    }
     updateStuff(j)
     }
   },

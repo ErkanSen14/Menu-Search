@@ -6,11 +6,10 @@ List2 = React.createClass({
 mixins: [ReactMeteorData],
   getMeteorData() {
      return {
-       menus: db.find({},{sort: {percent: -1}}).fetch()
+       menus: db.find({}).fetch()
      }
    },
   renderTasks() {
-    menus2=db.find({},{sort: {percent: -1}}).fetch()
     return this.data.menus.map((venue)=>{
       return <li key={venue.key}>{venue.percent+ " - "+venue.name}</li>
     })
