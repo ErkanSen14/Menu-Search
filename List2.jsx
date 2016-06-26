@@ -11,7 +11,7 @@ mixins: [ReactMeteorData],
    },
   renderTasks() {
     return this.data.menus.map((venue)=>{
-      return <li key={venue.key}>{venue.percent+ " - "+venue.name}</li>
+      return <li key={venue.key}>{venue.name}</li>
     })
   },
 
@@ -24,7 +24,7 @@ mixins: [ReactMeteorData],
     return (
       <div className="container">
         <header>
-        <h1>Best Matched Restaurants</h1>
+        <h1>Restaurants</h1>
         </header>
         <ul>
           {this.renderTasks()}
